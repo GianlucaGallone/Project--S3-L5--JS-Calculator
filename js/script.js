@@ -70,9 +70,10 @@ function divide() {
 }
 function equal() {
     let result; 
+    // operatore con due dati
     if(document.getElementById('field_2').innerHTML == '+') {
         result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML;
-         // field_2 e' l'operatore
+    // field_2 e' l'operatore
     } else if (document.getElementById('field_2').innerHTML == '-') {
         result = +document.getElementById('field_1').innerHTML - +document.getElementById('field_3').innerHTML;
 
@@ -82,6 +83,33 @@ function equal() {
     } else if (document.getElementById('field_2').innerHTML == 'X') {
         result = +document.getElementById('field_1').innerHTML * +document.getElementById('field_3').innerHTML;
     }
+    // operatore con tre dati
+    if(document.getElementById('field_4').innerHTML == '+') {
+        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML + +document.getElementById('field_5').innerHTML;
+         
+    } else if (document.getElementById('field_2').innerHTML == '-') {
+        result = +document.getElementById('field_1').innerHTML - +document.getElementById('field_3').innerHTML - +document.getElementById('field_5').innerHTML;
+
+    } else if (document.getElementById('field_2').innerHTML == '/') {
+        result = +document.getElementById('field_1').innerHTML / +document.getElementById('field_3').innerHTML / +document.getElementById('field_5').innerHTML;
+
+    } else if (document.getElementById('field_2').innerHTML == 'X') {
+        result = +document.getElementById('field_1').innerHTML * +document.getElementById('field_3').innerHTML * +document.getElementById('field_5').innerHTML;
+    }
+    // se nel campo due ci sono +/- e nel campo 4 /-* fai prima la divisione/moltiplicazione e poi la sottrazione/addizione
+    if (document.getElementById('field_2').innerHTML == '+' && document.getElementById('field_4').innerHTML == '/') {
+        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML / +document.getElementById('field_5').innerHTML;
+
+    } else if (document.getElementById('field_2').innerHTML == '+' && document.getElementById('field_4').innerHTML == 'X') {
+        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML * +document.getElementById('field_5').innerHTML;
+    
+    } else if (document.getElementById('field_2').innerHTML == '-' && document.getElementById('field_4').innerHTML == '/') {
+        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML / +document.getElementById('field_5').innerHTML;
+
+    } else if (document.getElementById('field_2').innerHTML == '-' && document.getElementById('field_4').innerHTML == 'X') {
+        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML * +document.getElementById('field_5').innerHTML;
+    }
+
     clear_1();
     print(result);
     counter_plus();
@@ -91,6 +119,8 @@ function clear_1() {
     document.getElementById('field_1').innerHTML = '';
     document.getElementById('field_2').innerHTML = '';
     document.getElementById('field_3').innerHTML = '';
+    document.getElementById('field_4').innerHTML = '';
+    document.getElementById('field_5').innerHTML = '';
     counter = 0;
 }
 
@@ -107,13 +137,17 @@ function print(value) {
         field = 'field_2';
     } else if (counter == 2) {
         field = 'field_3';
+    } else if (counter == 3) {
+        field = 'field_4';
+    } else if (counter == 4) {
+        field = 'field_5';
     }
 
     document.getElementById(field).innerHTML += value; // concateni i valori
 }
 
 function counter_plus() {
-    if(counter > 2){ // incrementa il contatore, se e' superiore a 2, ritorna a 0, altrimenti si incrementa
+    if(counter > 4){ // incrementa il contatore, se e' superiore a 4, ritorna a 0, altrimenti si incrementa
         counter = 0;
     } else counter++;    
 }
