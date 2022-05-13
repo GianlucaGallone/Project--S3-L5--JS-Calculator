@@ -1,0 +1,33 @@
+body {
+    background-color: whitesmoke;
+    font-family: 'Lato';
+}
+.container {
+    background-color: white;
+    width: 260px;
+    height: 380px;
+    padding: 5px 5px 5px 15px;
+}
+.container h1 {
+    font-size: 1.5em;
+    padding: 20px 0;
+}
+.output {
+    display: flex;
+}
+.button input {
+    font-family: 'Lato';
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2em;
+    color: rgb(32, 98, 173);
+    background-color: rgb(193, 193, 193);
+    border: none;
+}
+.button #equal {
+    width: 240px;
+    height: 50px;
+}
