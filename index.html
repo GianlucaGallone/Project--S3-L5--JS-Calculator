@@ -15,36 +15,43 @@
 <body>
 
 <div class="container">
-    <h1>La mia calcolatrice in JS</h1>
+    <div class="calculator">
+        <h1>La mia calcolatrice in JS</h1>
 
-    <div class="output">
-        <div id="field_1"></div> <!-- numero -->
-        <div id="field_2"></div> <!-- operatore -->
-        <div id="field_3"></div> <!-- numero -->
-        <div id="field_4"></div> <!-- operatore -->
-        <div id="field_5"></div> <!-- numero -->
+        <div class="output">
+            <div id="field_1"></div> <!-- numero -->
+            <div id="field_2"></div> <!-- operatore -->
+            <div id="field_3"></div> <!-- numero -->
+            <div id="field_4"></div> <!-- operatore -->
+            <div id="field_5"></div> <!-- numero -->
+        </div>
+
+
+        <div class="button">
+            <input type="button" id="num_7" value="7" onclick="get_seven()"></input>
+            <input type="button" id="num_8" value="8" onclick="get_eight()"></input>
+            <input type="button" id="num_9" value="9" onclick="get_nine()"></input>
+            <input type="button" id="divide" value="/" onclick="divide()"></input>
+            <input type="button" id="num_4" value="4" onclick="get_four()"></input>
+            <input type="button" id="num_5" value="5" onclick="get_five()"></input>
+            <input type="button" id="num_6" value="6" onclick="get_six()"></input>
+            <input type="button" id="times" value="X" onclick="times()"></input>
+            <input type="button" id="num_1" value="1" onclick="get_one()"></input>
+            <input type="button" id="num_2" value="2" onclick="get_two()"></input>
+            <input type="button" id="num_3" value="3" onclick="get_three()"></input>
+            <input type="button" id="minus" value="-" onclick="minus()"></input>
+            <input type="button" id="clear" value="C" onclick="clear_all()"></input>
+            <input type="button" id="num_0" value="0" onclick="get_zero()"></input>
+            <input type="button" id="point" value="." onclick="point()"></input>
+            <input type="button" id="plus" value="+" onclick="plus()"></input>
+            <input type="button" id="equal" value="=" onclick="equal()"></input>
+        </div>
     </div>
+</div>
 
+<div class="description">
+    <p>Features:</p>
 
-    <div class="button">
-        <input type="button" id="num_7" value="7" onclick="get_seven()"></input>
-        <input type="button" id="num_8" value="8" onclick="get_eight()"></input>
-        <input type="button" id="num_9" value="9" onclick="get_nine()"></input>
-        <input type="button" id="divide" value="/" onclick="divide()"></input>
-        <input type="button" id="num_4" value="4" onclick="get_four()"></input>
-        <input type="button" id="num_5" value="5" onclick="get_five()"></input>
-        <input type="button" id="num_6" value="6" onclick="get_six()"></input>
-        <input type="button" id="times" value="X" onclick="times()"></input>
-        <input type="button" id="num_1" value="1" onclick="get_one()"></input>
-        <input type="button" id="num_2" value="2" onclick="get_two()"></input>
-        <input type="button" id="num_3" value="3" onclick="get_three()"></input>
-        <input type="button" id="minus" value="-" onclick="minus()"></input>
-        <input type="button" id="clear" value="C" onclick="clear_1()"></input>
-        <input type="button" id="num_0" value="0" onclick="get_zero()"></input>
-        <input type="button" id="point" value="." onclick="point()"></input>
-        <input type="button" id="plus" value="+" onclick="plus()"></input>
-        <input type="button" id="equal" value="=" onclick="equal()"></input>
-    </div>
 </div>
     <script src="js/script.js"></script>
 </body>

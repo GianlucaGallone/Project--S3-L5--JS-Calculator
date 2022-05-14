@@ -1,3 +1,5 @@
+//#region --------- Get Number Functions --------------
+
 function get_zero() {
     let num_0 = document.getElementById('num_0').value;
     print(num_0);
@@ -38,35 +40,42 @@ function get_nine() {
     let num_9 = document.getElementById('num_9').value;
     print(num_9);
 }
-function point() {
-    let point = document.getElementById('point').value;
-    print(point);
-}
-/* ---------------------------------------------------- */
+//#endregion *************************************************
+
+//#region ----------- Operator Functions ----------------
 
 function plus() {
     counter_plus();
     let plus = document.getElementById('plus').value;
     print(plus);
     counter_plus();
+    double_sign();
 }
 function minus() {
     counter_plus();
     let minus = document.getElementById('minus').value;
     print(minus);
     counter_plus();
+    double_sign();
 }
 function times() {
     counter_plus();
     let times = document.getElementById('times').value;
     print(times);
     counter_plus();
+    double_sign();
 }
 function divide() {
     counter_plus();
     let divide = document.getElementById('divide').value;
     print(divide);
     counter_plus();
+    double_sign();
+}
+function point() {
+    let point = document.getElementById('point').value;
+    print(point);
+    double_sign();
 }
 function equal() {
 
@@ -75,9 +84,7 @@ function equal() {
     let field_3 = +document.getElementById('field_3').innerHTML; // numero
     let field_4 = document.getElementById('field_4').innerHTML; // operatore
     let field_5 = +document.getElementById('field_5').innerHTML; // numero
-
     let result; 
-
     /* -------------operatore con due dati ------------------*/
 
     if (field_2 == '+') {
@@ -92,7 +99,6 @@ function equal() {
     if (field_2 == 'X') {
         result = field_1 * field_3;// se in field_2 simb. * = field_1 * field_3
     }
-
     /* -------------operatore con tre dati ------------------*/
 
     if (field_2 == '+' && field_4 == '+') { // due addizioni
@@ -107,7 +113,6 @@ function equal() {
     if (field_2 == 'X' && field_4 == 'X') { // due moltiplicazioni
         result = field_1 * field_3 * field_5;
     }
-
     /* --------------------------------------------------------- */
 
     if (field_2 == '+' && field_4 == '-') { // un'addizione e una sottrazione
@@ -150,12 +155,12 @@ function equal() {
         result = field_1 * field_3 / field_5;
     }
 
-    clear_1();
+    clear_all();
     print(result);
     counter_plus();
 }
 
-function clear_1() {
+function clear_all() {
     document.getElementById('field_1').innerHTML = '';
     document.getElementById('field_2').innerHTML = '';
     document.getElementById('field_3').innerHTML = '';
@@ -164,8 +169,89 @@ function clear_1() {
     counter = 0;
 }
 
-/* ---------------------------------------------------- */
+function double_sign() { // per nagare il doppio segno
 
+    let field_1_empty = document.getElementById('field_1').innerHTML == '';
+    let field_3_empty = document.getElementById('field_3').innerHTML == '';
+    /* ------------------------------------------------------------------ */
+    let field_2_divide = document.getElementById('field_2').innerHTML == '/';
+    let field_4_divide = document.getElementById('field_4').innerHTML == '/';
+    /* ------------------------------------------------------------------ */
+    let field_2_times = document.getElementById('field_2').innerHTML == 'X';
+    let field_4_times = document.getElementById('field_4').innerHTML == 'X';
+    /* ------------------------------------------------------------------ */
+    let field_2_minus = document.getElementById('field_2').innerHTML == '-';
+    let field_4_minus = document.getElementById('field_4').innerHTML == '-';
+    /* ------------------------------------------------------------------ */
+    let field_2_plus = document.getElementById('field_2').innerHTML == '+';
+    let field_4_plus = document.getElementById('field_4').innerHTML == '+';
+    /* ------------------------------------------------------------------ */
+    let field_1_point = document.getElementById('field_1').innerHTML == '.';
+    let field_1_points = document.getElementById('field_1').innerHTML == '..'; // se ci sono due punti
+
+    /* ------------- Tutte le combinazioni dei segni -------------------- */
+
+    if (field_1_empty && field_2_divide && field_3_empty && field_4_divide) { 
+        clear_all();
+    } else if (field_1_empty && field_2_divide && field_3_empty && field_4_times) {
+        clear_all();
+    } else if (field_1_empty && field_2_divide && field_3_empty && field_4_minus) {
+        clear_all();
+    } else if (field_1_empty && field_2_divide && field_3_empty && field_4_plus) {
+        clear_all();
+    }
+    /* ------------------------------------------------------------------ */
+
+    if (field_1_empty && field_2_times && field_3_empty && field_4_times) {
+        clear_all();
+    } else if (field_1_empty && field_2_times && field_3_empty && field_4_divide) {
+        clear_all();
+    } else if (field_1_empty && field_2_times && field_3_empty && field_4_minus) {
+        clear_all();
+    } else if (field_1_empty && field_2_times && field_3_empty && field_4_plus) {
+        clear_all();
+    }
+    /* ------------------------------------------------------------------ */
+
+    if (field_1_empty && field_2_minus && field_3_empty && field_4_minus) {
+        clear_all();
+    } else if (field_1_empty && field_2_minus && field_3_empty && field_4_divide) {
+        clear_all();
+    } else if (field_1_empty && field_2_minus && field_3_empty && field_4_times) {
+        clear_all();
+    } else if (field_1_empty && field_2_minus && field_3_empty && field_4_plus) {
+        clear_all();
+    }
+    /* ------------------------------------------------------------------ */
+
+    if (field_1_empty && field_2_plus && field_3_empty && field_4_plus) {
+        clear_all();
+    } else if (field_1_empty && field_2_plus && field_3_empty && field_4_divide) {
+        clear_all();
+    } else if (field_1_empty && field_2_plus && field_3_empty && field_4_times) {
+        clear_all();
+    } else if (field_1_empty && field_2_plus && field_3_empty && field_4_minus) {
+        clear_all();
+    }
+    /* ------------------------------------------------------------------ */
+    if (field_1_point && field_2_plus) {
+        clear_all();
+    } else if (field_1_point && field_2_minus) {
+        clear_all();
+    } else if (field_1_point && field_2_divide) {
+        clear_all();
+    } else if (field_1_point && field_2_times) {
+        clear_all();
+    }
+
+    if (field_1_points) { // se c'e' piu' di un punto clear
+        clear_all();
+    }
+}
+
+//#endregion *************************************************
+
+//#region --------- Counter / Print Functions ------------
 var counter = 0;
 
 function print(value) {
@@ -191,3 +277,4 @@ function counter_plus() {
         counter = 0;
     } else counter++;    
 }
+//#endregion ************************************************* 

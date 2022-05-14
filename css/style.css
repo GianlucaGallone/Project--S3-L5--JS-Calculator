@@ -1,11 +1,10 @@
 body {
     background-color: whitesmoke;
     font-family: 'Lato';
+    margin: auto;
 }
 .container {
     background-color: white;
-    width: 260px;
-    height: 450px;
     padding: 5px 5px 5px 15px;
 }
 .container h1 {
@@ -23,6 +22,10 @@ body {
     font-weight: bolder;
     font-size: 2em;
     color: rgb(32, 98, 173);
+}
+.button {
+    width: 260px;
+    height: 450px;
 }
 .button input {
     font-family: 'Lato';
