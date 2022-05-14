@@ -155,9 +155,8 @@ function equal() {
         result = field_1 * field_3 / field_5;
     }
 
-    clear_all();
-    print(result);
-    counter_plus();
+    clear_all(); // elimina il contenuto dei campi
+    print(result); // poi stampa il risultato
 }
 
 function clear_all() {
@@ -166,32 +165,78 @@ function clear_all() {
     document.getElementById('field_3').innerHTML = '';
     document.getElementById('field_4').innerHTML = '';
     document.getElementById('field_5').innerHTML = '';
+    document.getElementById('field_6').innerHTML = '';
     counter = 0;
 }
 
-function double_sign() { // per nagare il doppio segno
+//#endregion *************************************************
 
-    let field_1_empty = document.getElementById('field_1').innerHTML == '';
+//#region --------- Counter / Print Functions ------------
+var counter = 0;
+
+function print(value) {
+
+    let field;
+    if(counter == 0) { // se counter e' 0 sei nella prima casella
+        field = 'field_1';
+    } else if (counter == 1) { // se il counter e' 1 sei nella seconda
+        field = 'field_2';
+    } else if (counter == 2) {
+        field = 'field_3';
+    } else if (counter == 3) {
+        field = 'field_4';
+    } else if (counter == 4) {
+        field = 'field_5';
+    } else if (counter == 5) {
+        field = 'field_6';
+    }
+
+    document.getElementById(field).innerHTML += value; // concateni i valori
+}
+
+function counter_plus() {
+    if(counter > 5){ // incrementa il contatore, se e' superiore a 4, ritorna a 0, altrimenti si incrementa
+        counter = 0;
+    } else counter++;    
+}
+//#endregion ************************************************* 
+
+//#region ----------- Controlli ----------------
+
+function double_sign() { 
+
+    function clear_2_4() {
+        document.getElementById('field_2').innerHTML = '';
+        document.getElementById('field_4').innerHTML = '';
+        counter = 0;
+    }
+
+    let field_1_empty = document.getElementById('field_1').innerHTML == ''; // se il campo e' vuoto
     let field_3_empty = document.getElementById('field_3').innerHTML == '';
+    let field_5_empty = document.getElementById('field_5').innerHTML == '';
     /* ------------------------------------------------------------------ */
     let field_2_divide = document.getElementById('field_2').innerHTML == '/';
     let field_4_divide = document.getElementById('field_4').innerHTML == '/';
+    let field_6_divide = document.getElementById('field_6').innerHTML == '/';
     /* ------------------------------------------------------------------ */
     let field_2_times = document.getElementById('field_2').innerHTML == 'X';
     let field_4_times = document.getElementById('field_4').innerHTML == 'X';
+    let field_6_times = document.getElementById('field_6').innerHTML == 'X';
     /* ------------------------------------------------------------------ */
     let field_2_minus = document.getElementById('field_2').innerHTML == '-';
     let field_4_minus = document.getElementById('field_4').innerHTML == '-';
+    let field_6_minus = document.getElementById('field_6').innerHTML == '-';
     /* ------------------------------------------------------------------ */
     let field_2_plus = document.getElementById('field_2').innerHTML == '+';
     let field_4_plus = document.getElementById('field_4').innerHTML == '+';
+    let field_6_plus = document.getElementById('field_6').innerHTML == '+';
     /* ------------------------------------------------------------------ */
     let field_1_point = document.getElementById('field_1').innerHTML == '.';
     let field_1_points = document.getElementById('field_1').innerHTML == '..'; // se ci sono due punti
 
-    /* ------------- Tutte le combinazioni dei segni -------------------- */
+    /* ------- Prima operazione: pulisci i campi per evitare doppi segni ------- */
 
-    if (field_1_empty && field_2_divide && field_3_empty && field_4_divide) { 
+    if (field_1_empty && field_2_divide && field_3_empty && field_4_divide) {
         clear_all();
     } else if (field_1_empty && field_2_divide && field_3_empty && field_4_times) {
         clear_all();
@@ -244,37 +289,67 @@ function double_sign() { // per nagare il doppio segno
         clear_all();
     }
 
-    if (field_1_points) { // se c'e' piu' di un punto clear
+    if (field_1_points) { // se c'e' piu' di un punto pulisci
         clear_all();
     }
-}
+    
+    /* --- Seconda operazione: pulisci il campo 2 e 4 per evitare doppi segni --- */
 
-//#endregion *************************************************
-
-//#region --------- Counter / Print Functions ------------
-var counter = 0;
-
-function print(value) {
-
-    let field;
-    if(counter == 0) { // se counter e' 0 sei nella prima casella
-        field = 'field_1';
-    } else if (counter == 1) { // se il counter e' 1 sei nella seconda
-        field = 'field_2';
-    } else if (counter == 2) {
-        field = 'field_3';
-    } else if (counter == 3) {
-        field = 'field_4';
-    } else if (counter == 4) {
-        field = 'field_5';
+    if (field_2_plus && field_3_empty && field_4_plus) { 
+        clear_2_4();
+    } else if (field_2_plus && field_3_empty && field_4_minus) {
+        clear_2_4();
+    } else if (field_2_plus && field_3_empty && field_4_divide) {
+        clear_2_4();
+    } else if (field_2_plus && field_3_empty && field_4_times) {
+        clear_2_4();
     }
 
-    document.getElementById(field).innerHTML += value; // concateni i valori
-}
+    if (field_2_minus && field_3_empty && field_4_minus) { 
+        clear_2_4();
+    } else if (field_2_minus && field_3_empty && field_4_plus) {
+        clear_2_4();
+    } else if (field_2_minus && field_3_empty && field_4_divide) {
+        clear_2_4();
+    } else if (field_2_minus && field_3_empty && field_4_times) {
+        clear_2_4();
+    }
 
-function counter_plus() {
-    if(counter > 4){ // incrementa il contatore, se e' superiore a 4, ritorna a 0, altrimenti si incrementa
-        counter = 0;
-    } else counter++;    
+    if (field_2_divide && field_3_empty && field_4_divide) { 
+        clear_2_4();
+    } else if (field_2_divide && field_3_empty && field_4_times) {
+        clear_2_4();
+    } else if (field_2_divide && field_3_empty && field_4_plus) {
+        clear_2_4();
+    } else if (field_2_divide && field_3_empty && field_4_minus) {
+        clear_2_4();
+    }
+
+    if (field_2_times && field_3_empty && field_4_times) { 
+        clear_2_4();
+    } else if (field_2_times && field_3_empty && field_4_divide) {
+        clear_2_4();
+    } else if (field_2_times && field_3_empty && field_4_plus) {
+        clear_2_4();
+    } else if (field_2_times && field_3_empty && field_4_minus) {
+        clear_2_4();
+    }
+
+    /* --- Terza operazione: pulisci il campo 4 per evitare doppi segni --- */
+
+    if (field_6_plus) { // se nel campo 6 c'e' un segno cancella e rimani nel campo 5
+        document.getElementById('field_6').innerHTML = '';
+        counter = 4;
+    }else if (field_6_minus) {
+        document.getElementById('field_6').innerHTML = '';
+        counter = 4;
+    } else if (field_6_divide) { 
+        document.getElementById('field_6').innerHTML = '';
+        counter = 4;
+    }else if (field_6_times) { 
+        document.getElementById('field_6').innerHTML = '';
+        counter = 4;
+    }
+
 }
 //#endregion ************************************************* 
