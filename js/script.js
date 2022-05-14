@@ -69,45 +69,85 @@ function divide() {
     counter_plus();
 }
 function equal() {
+
+    let field_1 = +document.getElementById('field_1').innerHTML; // numero
+    let field_2 = document.getElementById('field_2').innerHTML; // operatore
+    let field_3 = +document.getElementById('field_3').innerHTML; // numero
+    let field_4 = document.getElementById('field_4').innerHTML; // operatore
+    let field_5 = +document.getElementById('field_5').innerHTML; // numero
+
     let result; 
-    // operatore con due dati
-    if(document.getElementById('field_2').innerHTML == '+') {
-        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML;
-    // field_2 e' l'operatore
-    } else if (document.getElementById('field_2').innerHTML == '-') {
-        result = +document.getElementById('field_1').innerHTML - +document.getElementById('field_3').innerHTML;
 
-    } else if (document.getElementById('field_2').innerHTML == '/') {
-        result = +document.getElementById('field_1').innerHTML / +document.getElementById('field_3').innerHTML;
+    /* -------------operatore con due dati ------------------*/
 
-    } else if (document.getElementById('field_2').innerHTML == 'X') {
-        result = +document.getElementById('field_1').innerHTML * +document.getElementById('field_3').innerHTML;
+    if (field_2 == '+') {
+        result = field_1 + field_3;// se in field_2 simb. + = field_1 + field_3
     }
-    // operatore con tre dati
-    if(document.getElementById('field_4').innerHTML == '+') {
-        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML + +document.getElementById('field_5').innerHTML;
-         
-    } else if (document.getElementById('field_2').innerHTML == '-') {
-        result = +document.getElementById('field_1').innerHTML - +document.getElementById('field_3').innerHTML - +document.getElementById('field_5').innerHTML;
-
-    } else if (document.getElementById('field_2').innerHTML == '/') {
-        result = +document.getElementById('field_1').innerHTML / +document.getElementById('field_3').innerHTML / +document.getElementById('field_5').innerHTML;
-
-    } else if (document.getElementById('field_2').innerHTML == 'X') {
-        result = +document.getElementById('field_1').innerHTML * +document.getElementById('field_3').innerHTML * +document.getElementById('field_5').innerHTML;
+    if (field_2 == '-') {
+        result = field_1 - field_3;// se in field_2 simb. - = field_1 - field_3
     }
-    // se nel campo due ci sono +/- e nel campo 4 /-* fai prima la divisione/moltiplicazione e poi la sottrazione/addizione
-    if (document.getElementById('field_2').innerHTML == '+' && document.getElementById('field_4').innerHTML == '/') {
-        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML / +document.getElementById('field_5').innerHTML;
+    if (field_2 == '/') {
+        result = field_1 / field_3;// se in field_2 simb. / = field_1 / field_3
+    }
+    if (field_2 == 'X') {
+        result = field_1 * field_3;// se in field_2 simb. * = field_1 * field_3
+    }
 
-    } else if (document.getElementById('field_2').innerHTML == '+' && document.getElementById('field_4').innerHTML == 'X') {
-        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML * +document.getElementById('field_5').innerHTML;
-    
-    } else if (document.getElementById('field_2').innerHTML == '-' && document.getElementById('field_4').innerHTML == '/') {
-        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML / +document.getElementById('field_5').innerHTML;
+    /* -------------operatore con tre dati ------------------*/
 
-    } else if (document.getElementById('field_2').innerHTML == '-' && document.getElementById('field_4').innerHTML == 'X') {
-        result = +document.getElementById('field_1').innerHTML + +document.getElementById('field_3').innerHTML * +document.getElementById('field_5').innerHTML;
+    if (field_2 == '+' && field_4 == '+') { // due addizioni
+        result = field_1 + field_3 + field_5; 
+    }
+    if (field_2 == '-' && field_4 == '-') { // due sottrazioni
+        result = field_1 - field_3 - field_5;
+    }
+    if (field_2 == '/' && field_4 == '/') { // due divisioni
+        result = field_1 / field_3 / field_5;
+    }
+    if (field_2 == 'X' && field_4 == 'X') { // due moltiplicazioni
+        result = field_1 * field_3 * field_5;
+    }
+
+    /* --------------------------------------------------------- */
+
+    if (field_2 == '+' && field_4 == '-') { // un'addizione e una sottrazione
+        result = field_1 + field_3 - field_5; 
+    }
+    if (field_2 == '+' && field_4 == '/') { // un'addizione e una divisione
+        result = field_1 + field_3 / field_5;
+    }
+    if (field_2 == '+' && field_4 == 'X') { // un'addizione e una moltiplicazione
+        result = field_1 + field_3 * field_5;
+    }
+
+    if (field_2 == '-' && field_4 == '+') { // un sottrazione e un'addizione
+        result = field_1 - field_3 + field_5; 
+    }
+    if (field_2 == '-' && field_4 == '/') { // un sottrazione e una divisione
+        result = field_1 - field_3 / field_5;
+    }
+    if (field_2 == '-' && field_4 == 'X') { // un sottrazione e una moltiplicazione
+        result = field_1 - field_3 * field_5;
+    }
+
+    if (field_2 == '/' && field_4 == '+') { // una divisione e un'addizione
+        result = field_1 / field_3 + field_5; 
+    }
+    if (field_2 == '/' && field_4 == '-') { // una divisione e una sottrazione
+        result = field_1 / field_3 - field_5;
+    }
+    if (field_2 == '/' && field_4 == 'X') { // una divisione e una moltiplicazione
+        result = field_1 / field_3 * field_5;
+    }
+
+    if (field_2 == 'X' && field_4 == '+') { // una moltiplicazione e un'addizione
+        result = field_1 * field_3 + field_5; 
+    }
+    if (field_2 == 'X' && field_4 == '-') { // una moltiplicazione e una sottrazione
+        result = field_1 * field_3 - field_5;
+    }
+    if (field_2 == 'X' && field_4 == '/') { // una moltiplicazione e una divisione
+        result = field_1 * field_3 / field_5;
     }
 
     clear_1();
@@ -151,5 +191,3 @@ function counter_plus() {
         counter = 0;
     } else counter++;    
 }
-
-
