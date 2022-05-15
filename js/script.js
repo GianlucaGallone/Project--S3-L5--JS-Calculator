@@ -85,6 +85,7 @@ function equal() {
     let field_4 = document.getElementById('field_4').innerHTML; // operatore
     let field_5 = +document.getElementById('field_5').innerHTML; // numero
     let result; 
+
     /* -------------operatore con due dati ------------------*/
 
     if (field_2 == '+') {

@@ -13,47 +13,52 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="title"><h1>Gianluca's Calculator.</h1></div>
+        <div class="grid-container">
+            
+            <div class="output">
+                <div id="field_1"></div> <!-- numero -->
+                <div id="field_2"></div> <!-- operatore -->
+                <div id="field_3"></div> <!-- numero -->
+                <div id="field_4"></div> <!-- operatore -->
+                <div id="field_5"></div> <!-- numero -->
+                <div id="field_6"></div> <!-- placeholder per bloccare doppio segno -->
+            </div>
 
-<div class="container">
-    <div class="calculator">
-        <h1>La mia calcolatrice in JS</h1>
-
-        <div class="output">
-            <div id="field_1"></div> <!-- numero -->
-            <div id="field_2"></div> <!-- operatore -->
-            <div id="field_3"></div> <!-- numero -->
-            <div id="field_4"></div> <!-- operatore -->
-            <div id="field_5"></div> <!-- numero -->
-            <div id="field_6"></div> <!-- placeholder per bloccare doppio segno -->
+            <div class="num_7"> <input type="button" id="num_7" value="7" onclick="get_seven()"></input> </div>
+            <div class="num_8"> <input type="button" id="num_8" value="8" onclick="get_eight()"></input> </div>
+            <div class="num_9"> <input type="button" id="num_9" value="9" onclick="get_nine()"></input> </div>
+            <div class="divide"> <input type="button" id="divide" value="/" onclick="divide()"></input> </div>
+            <div class="num_4"> <input type="button" id="num_4" value="4" onclick="get_four()"></input> </div>
+            <div class="num_5"> <input type="button" id="num_5" value="5" onclick="get_five()"></input> </div>
+            <div class="num_6"> <input type="button" id="num_6" value="6" onclick="get_six()"></input> </div>
+            <div class="times"> <input type="button" id="times" value="X" onclick="times()"></input> </div>
+            <div class="num_1"> <input type="button" id="num_1" value="1" onclick="get_one()"></input> </div>
+            <div class="num_2"> <input type="button" id="num_2" value="2" onclick="get_two()"></input> </div>
+            <div class="num_3"> <input type="button" id="num_3" value="3" onclick="get_three()"></input> </div>
+            <div class="minus"> <input type="button" id="minus" value="-" onclick="minus()"></input> </div>
+            <div class="clear"> <input type="button" id="clear" value="C" onclick="clear_all()"></input> </div>
+            <div class="num_0"> <input type="button" id="num_0" value="0" onclick="get_zero()"></input> </div>
+            <div class="point"> <input type="button" id="point" value="." onclick="point()"></input> </div>
+            <div class="plus"> <input type="button" id="plus" value="+" onclick="plus()"></input> </div>
+            <div class="equal"> <input type="button" id="equal" value="=" onclick="equal()"></input> </div>
+            
         </div>
 
-
-        <div class="button">
-            <input type="button" id="num_7" value="7" onclick="get_seven()"></input>
-            <input type="button" id="num_8" value="8" onclick="get_eight()"></input>
-            <input type="button" id="num_9" value="9" onclick="get_nine()"></input>
-            <input type="button" id="divide" value="/" onclick="divide()"></input>
-            <input type="button" id="num_4" value="4" onclick="get_four()"></input>
-            <input type="button" id="num_5" value="5" onclick="get_five()"></input>
-            <input type="button" id="num_6" value="6" onclick="get_six()"></input>
-            <input type="button" id="times" value="X" onclick="times()"></input>
-            <input type="button" id="num_1" value="1" onclick="get_one()"></input>
-            <input type="button" id="num_2" value="2" onclick="get_two()"></input>
-            <input type="button" id="num_3" value="3" onclick="get_three()"></input>
-            <input type="button" id="minus" value="-" onclick="minus()"></input>
-            <input type="button" id="clear" value="C" onclick="clear_all()"></input>
-            <input type="button" id="num_0" value="0" onclick="get_zero()"></input>
-            <input type="button" id="point" value="." onclick="point()"></input>
-            <input type="button" id="plus" value="+" onclick="plus()"></input>
-            <input type="button" id="equal" value="=" onclick="equal()"></input>
+        <div class="description">
+            <p>Calcola:</p>
+            <ul>
+                <li>Max 3 operazioni insieme</li>
+                <li>Espressioni semplici</li>
+                <li>Valori negativi</li>
+                <li>Numeri Decimali</li>
+            </ul>    
         </div>
+
     </div>
-</div>
 
-<div class="description">
-    <p>Features:</p>
-
-</div>
     <script src="js/script.js"></script>
+
 </body>
 </html>
